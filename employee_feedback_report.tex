@@ -1,0 +1,118 @@
+\documentclass[a4paper]{article}
+\usepackage[bottom=3cm, right=2cm, left=2cm, top=2cm]{geometry}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{subfig}
+\captionsetup[subfigure]{labelformat=empty}
+\usepackage[dvipsnames,table]{xcolor}
+
+% DOCUMENT
+\definecolor{MAINCOLOR}{HTML}{264487}
+\def\logo{logo-placeholder.png}
+\def\softskillgraph{soft_skills_radar_graph.png}
+\def\hardskillgraph{hard_skills_radar_graph.png}
+
+% TITLES
+\usepackage{titlesec}
+\titleformat{name=\section,numberless}{\normalfont\Large\bfseries\uppercase}{}{0em}{\color{MAINCOLOR}}
+\titleformat{name=\subsection,numberless}{\normalfont\large\bfseries}{}{0em}{\color{MAINCOLOR}}
+
+% TABLE
+\usepackage{tabularx}
+\usepackage{xltabular}
+\definecolor{TABLESHADE}{HTML}{d6eaf8}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\newcommand{\tableheader}[1]{\cellcolor{MAINCOLOR}\textcolor{white}{\uppercase{\textbf{#1}}}}
+\newcommand{\greencell}{\cellcolor{LimeGreen}}
+\newcommand{\redcell}{\cellcolor{BrickRed}}
+\newcommand{\orangecell}{\cellcolor{YellowOrange}}
+
+% HEADER
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrule}{\vspace{-0.3cm}\color{MAINCOLOR}\hrulefill}
+\rhead{\includegraphics[width=1cm]{\logo}}
+\setlength\headheight{33pt}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vfill
+    \includegraphics[width=4cm]{\logo}
+    \vskip1cm
+    \huge{Employee Feedback}\\
+    \vskip3cm
+    \textbf{\color{MAINCOLOR}\Huge{John Doe}}\\
+    \vskip0.5cm
+    \centering{\noindent\color{MAINCOLOR}\rule{4cm}{0.4pt}}\\
+    \vskip2cm
+    \normalsize{Submitted By}\\[2ex]
+    \Large{Jack Smith}\\[2ex]
+    \large{April, 2024}\\
+    \vfill
+\end{titlepage}
+
+\newpage
+
+\section*{Summary}
+
+\lipsum[2]\\[2ex]
+\lipsum[3]\\[2ex]
+\lipsum[4]
+
+\section*{Skills}
+
+\setlength\arrayrulewidth{3pt}
+{\def\arraystretch{1.5}\arrayrulecolor{white}
+    \rowcolors{3}{TABLESHADE}{white}
+    \begin{xltabular}{\textwidth} { 
+        {l} 
+       p{0.001\textwidth}
+       >{\centering\arraybackslash}X
+       >{\centering\arraybackslash}X}
+     \tableheader{Skills} 	& \tableheader{} 	& \tableheader{Comment} 	& \tableheader{Action} 		\\\hline
+     Technical Proficiency 	& \greencell 		& \lipsum[1][3] 			& \lipsum[2][2-6] 			\\\hline
+     Teamwork  				& \greencell 		& \lipsum[1][4-7] 			& \lipsum[1][2]				\\\hline
+     Attention to Detail 	& \orangecell 		& \lipsum[3][2] 			& \lipsum[4][1-3] 			\\\hline
+     Problem-Solving 		& \redcell 			& \lipsum[3][2] 			& \lipsum[4][1-3] 			\\\hline
+     Communication 			& \greencell 		& \lipsum[5][7-10] 			& \lipsum[4][1-3] 			\\\hline
+     Adaptability 			& \greencell 		& \lipsum[8][7-11] 			& \lipsum[5][1-3] 			\\\hline
+     Result Oriented  		& \orangecell 		& \lipsum[8][2-4] 			& \lipsum[5][2-4] 			\\\hline
+     Independent Work  		& \redcell 			& \lipsum[2][2-5] 			& \lipsum[5][4-6] 			\\\hline
+     Professional Conduct  	& \greencell 		& \lipsum[4][2-5] 			& \lipsum[6][1-3] 			\\\hline
+     Proactivity  			& \greencell 		& \lipsum[4][2-4] 			& \lipsum[7][1-3]  			\\\hline
+     Feedback Receptivity 	& \greencell 		& \lipsum[2][7-11] 			& \lipsum[8][1-3] 			\\
+    \end{xltabular}
+}
+
+\begin{figure}[!h]
+    \centering
+    \subfloat[\centering Soft Skills]{{\includegraphics[width=8cm]{\softskillgraph} }}%
+    \qquad
+    \subfloat[\centering Hard Skills]{{\includegraphics[width=8cm]{\hardskillgraph} }}%
+\end{figure}
+
+\section*{Remarks}
+
+\subsection*{Personal Expectations}
+\lipsum[5]
+
+\subsection*{System Design}
+\lipsum[4]
+
+\subsection*{Professional Conduct}
+\lipsum[6]
+
+\section*{Going Forward}
+\subsection*{Certifications}
+\lipsum[7]
+
+\subsection*{Workshops}
+\lipsum[9]
+
+\subsection*{Presentations}
+\lipsum[10]
+
+\end{document}
